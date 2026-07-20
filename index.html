@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,129 +15,178 @@
     box-sizing:border-box;
 }
 
+
 body{
+
     background:#000;
     color:#eee;
     font-family:Consolas, monospace;
     overflow:hidden;
+
 }
 
 
+
+/* ЗАГРУЗКА */
+
 #boot{
+
     position:fixed;
     inset:0;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
+
     background:#000;
+
 }
 
 
 h1{
-    font-size:38px;
-    letter-spacing:6px;
-    margin-bottom:40px;
+
+    font-size:26px;
+    letter-spacing:4px;
+    margin-bottom:25px;
     font-weight:400;
+
 }
+
 
 
 .bar{
-    width:320px;
-    height:8px;
+
+    width:220px;
+    height:6px;
+
     background:#222;
+
     border-radius:5px;
+
     overflow:hidden;
+
 }
+
 
 
 .progress{
+
     height:100%;
     width:0%;
+
     background:#fff;
+
     animation:load 4s forwards;
+
 }
+
 
 
 @keyframes load{
 
 from{
+
     width:0%;
+
 }
 
 to{
+
     width:100%;
+
 }
 
 }
+
 
 
 #percent{
-    margin-top:20px;
+
+    margin-top:15px;
+
     color:#777;
+
+    font-size:12px;
+
 }
 
+
+
+
+/* ОСНОВНАЯ СТРАНИЦА */
 
 
 #main{
 
     display:none;
 
-    height:100vh;
+    min-height:100vh;
+
     width:100vw;
 
+
     justify-content:center;
+
     align-items:center;
+
 
     flex-direction:column;
 
+
     text-align:center;
 
-    padding:40px;
+
+    padding:15px;
 
 }
+
 
 
 
 #title{
 
-    font-size:42px;
+    font-size:26px;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
-    margin-bottom:25px;
+    margin-bottom:15px;
 
 }
+
 
 
 
 #text{
 
-    max-width:700px;
+    max-width:330px;
 
     color:#aaa;
 
-    line-height:1.8;
+    line-height:1.4;
 
-    margin-bottom:40px;
+    margin-bottom:20px;
 
-    font-size:18px;
+    font-size:14px;
 
 }
 
 
 
-/* КАРТИНКА */
 
 img{
 
-    max-width:420px;
+    max-width:300px;
 
-    width:90%;
+    width:80%;
+
 
     border-radius:0;
 
     box-shadow:none;
+
 
     transition:0.5s;
 
@@ -144,23 +194,25 @@ img{
 
 
 
+
 img:hover{
 
-    transform:scale(1.04);
+    transform:scale(1.03);
 
 }
 
 
 
+
 .small{
 
-    margin-top:40px;
+    margin-top:15px;
 
     color:#666;
 
-    font-size:14px;
+    font-size:11px;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
 }
 
@@ -168,10 +220,12 @@ img:hover{
 
 </style>
 
+
 </head>
 
 
 <body>
+
 
 
 <div id="boot">
@@ -200,6 +254,7 @@ img:hover{
 
 
 <div id="main">
+
 
 
 <div id="title">
@@ -232,7 +287,10 @@ img:hover{
 
 
 
+
 <img src="print.jpg">
+
+
 
 
 
@@ -241,6 +299,7 @@ img:hover{
 ОБЪЕКТ FOX-09 АКТИВЕН
 
 </div>
+
 
 
 

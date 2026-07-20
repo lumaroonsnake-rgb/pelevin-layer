@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Второй слой</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#eee;
+    font-family:Consolas, monospace;
+    overflow:hidden;
+}
+
+
+#boot{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:#000;
+}
+
+
+h1{
+    font-size:38px;
+    letter-spacing:6px;
+    margin-bottom:40px;
+    font-weight:400;
+}
+
+
+.bar{
+    width:320px;
+    height:8px;
+    background:#222;
+    border-radius:5px;
+    overflow:hidden;
+}
+
+
+.progress{
+    height:100%;
+    width:0%;
+    background:#fff;
+    animation:load 4s forwards;
+}
+
+
+@keyframes load{
+
+from{
+    width:0%;
+}
+
+to{
+    width:100%;
+}
+
+}
+
+
+#percent{
+    margin-top:20px;
+    color:#777;
+}
+
+
+
+#main{
+
+    display:none;
+
+    height:100vh;
+    width:100vw;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+#title{
+
+    font-size:42px;
+
+    letter-spacing:3px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+#text{
+
+    max-width:700px;
+
+    color:#aaa;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+    font-size:18px;
+
+}
+
+
+
+img{
+
+    max-width:420px;
+
+    width:90%;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,0.15);
+
+    transition:0.5s;
+
+}
+
+
+
+img:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+
+.small{
+
+    margin-top:40px;
+
+    color:#666;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div id="boot">
+
+
+<h1>ИНИЦИАЛИЗАЦИЯ</h1>
+
+
+<div class="bar">
+
+<div class="progress"></div>
+
+</div>
+
+
+<div id="percent">
+
+Проверка второго слоя...
+
+</div>
+
+
+</div>
+
+
+
+
+<div id="main">
+
+
+<div id="title">
+
+ДОСТУП РАЗРЕШЁН
+
+</div>
+
+
+
+<div id="text">
+
+
+Ты увидел рисунок.
+
+<br><br>
+
+Но некоторые изображения существуют сразу в двух слоях.
+
+<br><br>
+
+Перед тобой первый.
+
+<br>
+
+Второй начинается здесь.
+
+
+</div>
+
+
+
+<img src="print.jpg">
+
+
+
+<div class="small">
+
+ОБЪЕКТ FOX-09 АКТИВЕН
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+setTimeout(function(){
+
+
+document.getElementById("boot").style.display="none";
+
+
+document.getElementById("main").style.display="flex";
+
+
+document.body.style.overflow="auto";
+
+
+},4000);
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

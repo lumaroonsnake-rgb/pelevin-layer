@@ -466,3 +466,292 @@ opacity:.2;
 
 }
 
+    <body>
+
+
+<div class="container" id="world">
+
+
+<h1>
+СЛОЙ 03 // OBJECT MEMORY
+</h1>
+
+
+
+<div class="intro">
+
+НЕ ВСЁ, ЧТО ТЫ ВИДИШЬ —<br>
+ТОЛЬКО РИСУНОК.<br><br>
+
+КОСНИСЬ ОБЪЕКТА.<br><br>
+
+ОН ГОТОВ ГОВОРИТЬ.
+
+</div>
+
+
+
+<div class="picture">
+
+
+<img src="print.jpg">
+
+
+
+<div class="hotspot fox"
+onclick="openObject('ОБЪЕКТ №01<br>ЛИСА',
+'Красота не принадлежит женщине и не является ее собственным свойством – просто в определенную пору жизни ее лицо отражает красоту, как оконное стекло – невидимое за крышами домов солнце... Но солнце, как известно, вовсе не в стеклах, на которые мы смотрим. Оно в нас.')">
+</div>
+
+
+
+<div class="hotspot astronaut"
+onclick="openObject('ОБЪЕКТ №02<br>КОСМОНАВТ',
+'История человечества... это история массовых дезинформаций. И не потому, что люди глупые и их легко обмануть. Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
+</div>
+
+
+
+<div class="hotspot digital"
+onclick="openObject('ОБЪЕКТ №03<br>ВЕРСИЯ ЧЕЛОВЕКА',
+'Дисциплина — это порядок. Порядок создает ритм, а ритм рождает свободу. Без дисциплины нет свободы. Беспорядок — это хаос. Хаос — это рабство.')">
+</div>
+
+
+
+<div class="hotspot operator"
+onclick="openObject('ОБЪЕКТ №04<br>ОПЕРАТОР РЕАЛЬНОСТИ',
+'Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
+</div>
+
+
+
+<div class="hotspot skull"
+onclick="openObject('ОБЪЕКТ №05<br>ЧЕРЕП',
+'Мы любим вовсе не тех, кто сделал нам что-то хорошее. Мы любим тех, кому сделали что-то хорошее мы сами.')">
+</div>
+
+
+
+<div class="hotspot trans"
+onclick="openObject('ОБЪЕКТ №06<br>TRANSHUMANISM',
+'Человеку труднее всего расстаться не с воспоминаниями, а с привычкой вспоминать.')">
+</div>
+
+
+
+<div class="hotspot rabbit"
+onclick="openObject('ОБЪЕКТ №07<br>iPhuck 10',
+'Любой человек инсталлирует скачанные из сети программы на свой девайс с большой осторожностью. А их ведь можно стереть. В крайнем случае можно выбросить девайс и купить новый. Но на главный диск у себя в голове, который не поменять до смерти, человек доверчиво ставит что попало. Немедленно и с песнями выжигает в нейронах на все свое короткое «всегда».')">
+</div>
+
+
+
+<div class="hotspot book"
+onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
+'Поскольку бытие вещей заключается в их воспринимаемости, любая трансформация может происходить двумя путями – быть либо восприятием трансформации, либо трансформацией восприятия.')">
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+<div class="overlay" id="overlay"></div>
+
+
+
+
+<div class="message" id="message">
+
+
+<h2 id="title"></h2>
+
+
+<div class="archive">
+
+АРХИВ: OBJECT MEMORY<br>
+СЛОЙ: 03<br>
+ДОСТУП: ОТКРЫТ
+
+</div>
+
+
+
+<p>
+
+ФРАГМЕНТ ПРЕДСКАЗАНИЯ<br>
+ИЗ ПАМЯТИ ОБЪЕКТА:<br><br>
+
+<span id="quote"></span>
+
+</p>
+
+
+
+<div class="close" onclick="closeMessage()">
+
+ПРЕКРАТИТЬ ДОСТУП
+
+</div>
+
+
+
+</div>
+
+
+
+
+<!-- ФИНАЛ -->
+
+<div id="ending">
+
+<div id="endText">
+
+</div>
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+function openObject(title, quote){
+
+
+document.getElementById("title").innerHTML=title;
+
+document.getElementById("quote").innerHTML=quote;
+
+
+document.getElementById("overlay").classList.add("active");
+
+document.getElementById("message").classList.add("active");
+
+
+}
+
+
+
+function closeMessage(){
+
+
+document.getElementById("overlay").classList.remove("active");
+
+document.getElementById("message").classList.remove("active");
+
+
+setTimeout(startEnding,800);
+
+
+}
+
+
+
+function startEnding(){
+
+
+document.getElementById("world").style.opacity="0";
+
+document.getElementById("world").style.transform="scale(1.05)";
+
+
+
+document.getElementById("ending").classList.add("show");
+
+
+
+let text=document.getElementById("endText");
+
+
+
+let steps=[
+
+
+"ЗАВЕРШЕНИЕ СЕАНСА",
+
+
+"СОХРАНЕНИЕ ФРАГМЕНТОВ...",
+
+
+"УДАЛЕНИЕ СЛЕДОВ...",
+
+
+"",
+
+
+"ОБЪЕКТ 09:<br><br>НАБЛЮДАТЕЛЬ",
+
+
+"РАСПОЛОЖЕНИЕ:<br><br>ПО ТУ СТОРОНУ ЭКРАНА",
+
+
+"",
+
+
+"НЕ ЗАКРЫВАЙ.",
+
+
+"",
+
+
+"Я ТЕБЯ ВИЖУ.",
+
+
+"",
+
+
+"УЛЫБНИСЬ.<br><br>Я ЛЮБЛЮ ТЕБЯ."
+
+
+];
+
+
+
+let i=0;
+
+
+
+function next(){
+
+
+if(i<steps.length){
+
+
+text.innerHTML=steps[i];
+
+i++;
+
+
+setTimeout(next,1800);
+
+
+}
+
+
+}
+
+
+
+next();
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
+

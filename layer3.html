@@ -90,17 +90,13 @@ h1{
 
 
 
-/* ЗОНЫ КЛИКА */
+/* НЕВИДИМЫЕ ЗОНЫ */
 
 .hotspot{
 
     position:absolute;
 
     cursor:pointer;
-
-    border:2px solid red;
-
-    background:rgba(255,0,0,0.15);
 
 }
 
@@ -111,11 +107,9 @@ h1{
 .fox{
 
     left:2.18%;
-
     top:14.14%;
 
     width:36.05%;
-
     height:50.27%;
 
 }
@@ -127,11 +121,9 @@ h1{
 .astronaut{
 
     left:70.87%;
-
     top:10.52%;
 
     width:26.57%;
-
     height:41.55%;
 
 }
@@ -143,11 +135,9 @@ h1{
 .digital{
 
     left:35.29%;
-
     top:14.34%;
 
     width:37.95%;
-
     height:54.96%;
 
 }
@@ -159,11 +149,9 @@ h1{
 .operator{
 
     left:5.03%;
-
     top:65.48%;
 
     width:22.77%;
-
     height:21.45%;
 
 }
@@ -175,11 +163,9 @@ h1{
 .skull{
 
     left:37.57%;
-
     top:68.36%;
 
     width:24.67%;
-
     height:22.79%;
 
 }
@@ -191,11 +177,9 @@ h1{
 .trans{
 
     left:22.01%;
-
     top:85.12%;
 
     width:16.13%;
-
     height:11.39%;
 
 }
@@ -207,11 +191,9 @@ h1{
 .rabbit{
 
     left:77.89%;
-
     top:52.68%;
 
     width:17.08%;
-
     height:26.81%;
 
 }
@@ -223,17 +205,17 @@ h1{
 .book{
 
     left:68.88%;
-
     top:77.21%;
 
     width:17.08%;
-
     height:22.79%;
 
 }
 
 
 
+
+/* ОКНО */
 
 .message{
 
@@ -242,7 +224,6 @@ h1{
     position:fixed;
 
     left:50%;
-
     top:50%;
 
     transform:translate(-50%,-50%);
@@ -253,9 +234,9 @@ h1{
 
     width:90%;
 
-    max-width:500px;
+    max-width:520px;
 
-    padding:35px;
+    padding:30px;
 
     z-index:20;
 
@@ -265,9 +246,27 @@ h1{
 
 .message h2{
 
+    font-size:22px;
+
     letter-spacing:3px;
 
-    line-height:1.6;
+    line-height:1.5;
+
+}
+
+
+
+.message p{
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    color:#ccc;
+
+    max-height:60vh;
+
+    overflow-y:auto;
 
 }
 
@@ -284,10 +283,11 @@ h1{
 }
 
 
+
 </style>
 
-
 </head>
+
 
 
 <body>
@@ -323,42 +323,57 @@ h1{
 
 
 <div class="hotspot fox"
-onclick="openObject('ОБЪЕКТ №01<br>ЛИСА')">
+onclick="openObject('ОБЪЕКТ №01<br>ЛИСА',
+'Красота не принадлежит женщине и не является ее собственным свойством – просто в определенную пору жизни ее лицо отражает красоту, как оконное стекло – невидимое за крышами домов солнце... Но солнце, как известно, вовсе не в стеклах, на которые мы смотрим. Оно в нас.')">
 </div>
+
 
 
 <div class="hotspot astronaut"
-onclick="openObject('ОБЪЕКТ №02<br>КОСМОНАВТ')">
+onclick="openObject('ОБЪЕКТ №02<br>КОСМОНАВТ',
+'История человечества... это история массовых дезинформаций. И не потому, что люди глупые и их легко обмануть. Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
 </div>
+
 
 
 <div class="hotspot digital"
-onclick="openObject('ОБЪЕКТ №03<br>ВЕРСИЯ ЧЕЛОВЕКА')">
+onclick="openObject('ОБЪЕКТ №03<br>ВЕРСИЯ ЧЕЛОВЕКА',
+'Дисциплина — это порядок. Порядок создает ритм, а ритм рождает свободу. Без дисциплины нет свободы. Беспорядок — это хаос. Хаос — это рабство.')">
 </div>
+
 
 
 <div class="hotspot operator"
-onclick="openObject('ОБЪЕКТ №04<br>ОПЕРАТОР РЕАЛЬНОСТИ')">
+onclick="openObject('ОБЪЕКТ №04<br>ОПЕРАТОР РЕАЛЬНОСТИ',
+'Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
 </div>
+
 
 
 <div class="hotspot skull"
-onclick="openObject('ОБЪЕКТ №05<br>ЧЕРЕП')">
+onclick="openObject('ОБЪЕКТ №05<br>ЧЕРЕП',
+'Мы любим вовсе не тех, кто сделал нам что-то хорошее. Мы любим тех, кому сделали что-то хорошее мы сами.')">
 </div>
+
 
 
 <div class="hotspot trans"
-onclick="openObject('ОБЪЕКТ №06<br>TRANSHUMANISM')">
+onclick="openObject('ОБЪЕКТ №06<br>TRANSHUMANISM',
+'Человеку труднее всего расстаться не с воспоминаниями, а с привычкой вспоминать.')">
 </div>
+
 
 
 <div class="hotspot rabbit"
-onclick="openObject('ОБЪЕКТ №07<br>iPhuck 10')">
+onclick="openObject('ОБЪЕКТ №07<br>iPhuck 10',
+'Любой человек инсталлирует скачанные из сети программы на свой девайс с большой осторожностью. А их ведь можно стереть. В крайнем случае можно выбросить девайс и купить новый. Но на главный диск у себя в голове, который не поменять до смерти, человек доверчиво ставит что попало. Немедленно и с песнями выжигает в нейронах на все свое короткое «всегда».')">
 </div>
 
 
+
 <div class="hotspot book"
-onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')">
+onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
+'Поскольку бытие вещей заключается в их воспринимаемости, любая трансформация может происходить двумя путями – быть либо восприятием трансформации, либо трансформацией восприятия.')">
 </div>
 
 
@@ -381,12 +396,10 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')"
 
 <p>
 
-СООБЩЕНИЕ ДЛЯ ТЕБЯ<br>
-ИЗ МИРА ОБЪЕКТА:
+ФРАГМЕНТ ПРЕДСКАЗАНИЯ<br>
+ИЗ ПАМЯТИ ОБЪЕКТА:<br><br>
 
-<br><br>
-
-[ЗДЕСЬ БУДЕТ СООБЩЕНИЕ]
+<span id="quote"></span>
 
 </p>
 
@@ -406,9 +419,11 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')"
 <script>
 
 
-function openObject(text){
+function openObject(title, quote){
 
-document.getElementById("title").innerHTML=text;
+document.getElementById("title").innerHTML=title;
+
+document.getElementById("quote").innerHTML=quote;
 
 document.getElementById("message").style.display="block";
 

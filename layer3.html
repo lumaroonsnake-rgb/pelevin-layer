@@ -16,6 +16,10 @@
     box-sizing:border-box;
 }
 
+    a{
+    -webkit-tap-highlight-color:transparent;
+}
+
 
 body{
 
@@ -103,7 +107,12 @@ h1{
 .hotspot{
 
     position:absolute;
+
     cursor:pointer;
+
+    z-index:5;
+
+    pointer-events:auto;
 
 }
 
@@ -450,14 +459,15 @@ body.shake{
 /* ГЛИТЧ КАРТИНКИ */
 
 
-.picture.break img{
+.picture img{
 
+    width:100%;
+    height:auto;
+    max-height:72vh;
+    object-fit:contain;
+    display:block;
 
-animation:
-
-imageBreak .2s infinite,
-fadeImage 5s forwards;
-
+    pointer-events:none;
 
 }
 

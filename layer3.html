@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,40 +16,47 @@
     box-sizing:border-box;
 }
 
+
 body{
+
     background:#000;
     color:#eee;
+
     font-family:Consolas, monospace;
-    min-height:100vh;
+
+    text-align:center;
+
 }
 
 
 .container{
 
-    text-align:center;
     padding:30px 15px;
 
 }
 
 
+
 h1{
 
-    font-size:32px;
+    font-size:34px;
     letter-spacing:5px;
-    font-weight:400;
+
     margin-bottom:25px;
 
+    font-weight:400;
+
 }
+
 
 
 .intro{
 
     color:#aaa;
-    font-size:16px;
+
     line-height:1.8;
-    max-width:600px;
-    margin:auto;
-    margin-bottom:35px;
+
+    margin-bottom:30px;
 
 }
 
@@ -57,30 +65,42 @@ h1{
 .picture{
 
     position:relative;
-    display:inline-block;
-    max-width:900px;
+
     width:90%;
 
+    max-width:1000px;
+
+    margin:auto;
+
 }
+
 
 
 .picture img{
 
     width:100%;
+
     display:block;
 
 }
 
 
 
-/* ВСЕ КЛИК-ЗОНЫ */
+/* ЗОНЫ КЛИКА - ПОКА ВИДИМЫЕ */
 
 .hotspot{
 
     position:absolute;
+
     cursor:pointer;
 
+    border:2px solid red;
+
+    background:rgba(255,0,0,0.15);
+
 }
+
+
 
 
 
@@ -88,94 +108,125 @@ h1{
 
 .fox{
 
-left:4.4%;
-top:12.6%;
-width:31%;
-height:17%;
+    left:4%;
+
+    top:13%;
+
+    width:28%;
+
+    height:18%;
 
 }
+
 
 
 /* КОСМОНАВТ */
 
 .astronaut{
 
-left:67%;
-top:6.5%;
-width:28%;
-height:20%;
+    left:67%;
+
+    top:7%;
+
+    width:25%;
+
+    height:18%;
 
 }
 
 
-/* ЦЕНТРАЛЬНЫЙ ЧЕЛОВЕК */
+
+/* ПИКСЕЛЬНЫЙ ЧЕЛОВЕК */
 
 .digital{
 
-left:29%;
-top:12%;
-width:27%;
-height:23%;
+    left:30%;
+
+    top:12%;
+
+    width:28%;
+
+    height:25%;
 
 }
+
 
 
 /* ОПЕРАТОР РЕАЛЬНОСТИ */
 
 .operator{
 
-left:4%;
-top:43%;
-width:27%;
-height:17%;
+    left:4%;
+
+    top:44%;
+
+    width:25%;
+
+    height:16%;
 
 }
+
 
 
 /* ЧЕРЕП */
 
 .skull{
 
-left:44%;
-top:42%;
-width:25%;
-height:18%;
+    left:45%;
+
+    top:43%;
+
+    width:23%;
+
+    height:16%;
 
 }
+
 
 
 /* TRANSHUMANISM */
 
 .trans{
 
-left:32%;
-top:55%;
-width:18%;
-height:12%;
+    left:32%;
+
+    top:56%;
+
+    width:18%;
+
+    height:12%;
 
 }
 
 
-/* ЗАЯЦ */
+
+/* ЗАЯЦ IPHUCK */
 
 .rabbit{
 
-left:78%;
-top:30%;
-width:20%;
-height:22%;
+    left:78%;
+
+    top:31%;
+
+    width:20%;
+
+    height:20%;
 
 }
+
 
 
 /* КНИГА */
 
 .book{
 
-left:74%;
-top:47%;
-width:22%;
-height:18%;
+    left:74%;
+
+    top:48%;
+
+    width:20%;
+
+    height:18%;
 
 }
 
@@ -184,45 +235,38 @@ height:18%;
 
 .message{
 
-display:none;
+    display:none;
 
-position:fixed;
+    position:fixed;
 
-top:50%;
-left:50%;
+    left:50%;
 
-transform:translate(-50%,-50%);
+    top:50%;
 
-background:#050505;
+    transform:translate(-50%,-50%);
 
-border:1px solid #444;
+    background:#050505;
 
-padding:35px;
+    border:1px solid #555;
 
-width:90%;
-max-width:500px;
+    width:90%;
 
-z-index:10;
+    max-width:500px;
 
-text-align:center;
+    padding:35px;
 
-line-height:1.8;
+    z-index:20;
+
 
 }
+
 
 
 .message h2{
 
-font-size:20px;
-letter-spacing:3px;
-margin-bottom:20px;
+    letter-spacing:3px;
 
-}
-
-
-.message p{
-
-color:#ccc;
+    line-height:1.6;
 
 }
 
@@ -230,17 +274,18 @@ color:#ccc;
 
 .close{
 
-margin-top:25px;
+    margin-top:25px;
 
-color:#777;
+    color:#777;
 
-cursor:pointer;
+    cursor:pointer;
 
 }
 
 
 
 </style>
+
 
 </head>
 
@@ -252,8 +297,11 @@ cursor:pointer;
 
 
 <h1>
+
 СЛОЙ №3
+
 </h1>
+
 
 
 <div class="intro">
@@ -277,42 +325,42 @@ cursor:pointer;
 
 
 <div class="hotspot fox"
-onclick="openObject('ЛИСА','ОБЪЕКТ №01')">
+onclick="openObject('ОБЪЕКТ №01<br>ЛИСА')">
 </div>
 
 
 <div class="hotspot astronaut"
-onclick="openObject('КОСМОНАВТ','ОБЪЕКТ №02')">
-</div>
-
-
-<div class="hotspot operator"
-onclick="openObject('ОПЕРАТОР РЕАЛЬНОСТИ','ОБЪЕКТ №03')">
-</div>
-
-
-<div class="hotspot skull"
-onclick="openObject('ЧЕРЕП','ОБЪЕКТ №04')">
+onclick="openObject('ОБЪЕКТ №02<br>КОСМОНАВТ')">
 </div>
 
 
 <div class="hotspot digital"
-onclick="openObject('ВЕРСИЯ ЧЕЛОВЕКА','ОБЪЕКТ №05')">
+onclick="openObject('ОБЪЕКТ №03<br>ВЕРСИЯ ЧЕЛОВЕКА')">
+</div>
+
+
+<div class="hotspot operator"
+onclick="openObject('ОБЪЕКТ №04<br>ОПЕРАТОР РЕАЛЬНОСТИ')">
+</div>
+
+
+<div class="hotspot skull"
+onclick="openObject('ОБЪЕКТ №05<br>ЧЕРЕП')">
 </div>
 
 
 <div class="hotspot trans"
-onclick="openObject('TRANSHUMANISM','ОБЪЕКТ №06')">
+onclick="openObject('ОБЪЕКТ №06<br>TRANSHUMANISM')">
 </div>
 
 
 <div class="hotspot rabbit"
-onclick="openObject('iPhuck 10','ОБЪЕКТ №07')">
+onclick="openObject('ОБЪЕКТ №07<br>iPhuck 10')">
 </div>
 
 
 <div class="hotspot book"
-onclick="openObject('ЧАПАЕВ И ПУСТОТА','АРТЕФАКТ №08')">
+onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')">
 </div>
 
 
@@ -330,18 +378,25 @@ onclick="openObject('ЧАПАЕВ И ПУСТОТА','АРТЕФАКТ №08')">
 <h2 id="title"></h2>
 
 
+<br>
+
+
 <p>
 
 СООБЩЕНИЕ ДЛЯ ТЕБЯ<br>
-ИЗ МИРА ОБЪЕКТА:<br><br>
+ИЗ МИРА ОБЪЕКТА:
 
-[ЗДЕСЬ БУДЕТ ЦИТАТА]
+<br><br>
+
+[ЗДЕСЬ БУДЕТ СООБЩЕНИЕ]
 
 </p>
 
 
 <div class="close" onclick="closeMessage()">
+
 ЗАКРЫТЬ
+
 </div>
 
 
@@ -352,11 +407,9 @@ onclick="openObject('ЧАПАЕВ И ПУСТОТА','АРТЕФАКТ №08')">
 <script>
 
 
-function openObject(name,number){
+function openObject(text){
 
-document.getElementById("title").innerHTML =
-number+"<br><br>"+name;
-
+document.getElementById("title").innerHTML=text;
 
 document.getElementById("message").style.display="block";
 
@@ -372,6 +425,7 @@ document.getElementById("message").style.display="none";
 
 
 </script>
+
 
 
 </body>

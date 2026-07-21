@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Слой №3</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#eee;
+    font-family:Consolas, monospace;
+    min-height:100vh;
+}
+
+
+.container{
+
+    text-align:center;
+    padding:30px 15px;
+
+}
+
+
+h1{
+
+    font-size:32px;
+    letter-spacing:5px;
+    font-weight:400;
+    margin-bottom:25px;
+
+}
+
+
+.intro{
+
+    color:#aaa;
+    font-size:16px;
+    line-height:1.8;
+    max-width:600px;
+    margin:auto;
+    margin-bottom:35px;
+
+}
+
+
+
+.picture{
+
+    position:relative;
+    display:inline-block;
+    max-width:900px;
+    width:90%;
+
+}
+
+
+.picture img{
+
+    width:100%;
+    display:block;
+
+}
+
+
+
+/* ВСЕ КЛИК-ЗОНЫ */
+
+.hotspot{
+
+    position:absolute;
+    cursor:pointer;
+
+}
+
+
+
+/* ЛИСА */
+
+.fox{
+
+left:4.4%;
+top:12.6%;
+width:31%;
+height:17%;
+
+}
+
+
+/* КОСМОНАВТ */
+
+.astronaut{
+
+left:67%;
+top:6.5%;
+width:28%;
+height:20%;
+
+}
+
+
+/* ЦЕНТРАЛЬНЫЙ ЧЕЛОВЕК */
+
+.digital{
+
+left:29%;
+top:12%;
+width:27%;
+height:23%;
+
+}
+
+
+/* ОПЕРАТОР РЕАЛЬНОСТИ */
+
+.operator{
+
+left:4%;
+top:43%;
+width:27%;
+height:17%;
+
+}
+
+
+/* ЧЕРЕП */
+
+.skull{
+
+left:44%;
+top:42%;
+width:25%;
+height:18%;
+
+}
+
+
+/* TRANSHUMANISM */
+
+.trans{
+
+left:32%;
+top:55%;
+width:18%;
+height:12%;
+
+}
+
+
+/* ЗАЯЦ */
+
+.rabbit{
+
+left:78%;
+top:30%;
+width:20%;
+height:22%;
+
+}
+
+
+/* КНИГА */
+
+.book{
+
+left:74%;
+top:47%;
+width:22%;
+height:18%;
+
+}
+
+
+
+
+.message{
+
+display:none;
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+background:#050505;
+
+border:1px solid #444;
+
+padding:35px;
+
+width:90%;
+max-width:500px;
+
+z-index:10;
+
+text-align:center;
+
+line-height:1.8;
+
+}
+
+
+.message h2{
+
+font-size:20px;
+letter-spacing:3px;
+margin-bottom:20px;
+
+}
+
+
+.message p{
+
+color:#ccc;
+
+}
+
+
+
+.close{
+
+margin-top:25px;
+
+color:#777;
+
+cursor:pointer;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+СЛОЙ №3
+</h1>
+
+
+<div class="intro">
+
+НЕ ВСЁ, ЧТО ТЫ ВИДИШЬ,<br>
+ЯВЛЯЕТСЯ ПРОСТО РИСУНКОМ.<br><br>
+
+КОСНИСЬ ОДНОГО ИЗ ОБЪЕКТОВ.<br><br>
+
+ОН ГОТОВ ГОВОРИТЬ.
+
+</div>
+
+
+
+<div class="picture">
+
+
+<img src="print.jpg">
+
+
+
+<div class="hotspot fox"
+onclick="openObject('ЛИСА','ОБЪЕКТ №01')">
+</div>
+
+
+<div class="hotspot astronaut"
+onclick="openObject('КОСМОНАВТ','ОБЪЕКТ №02')">
+</div>
+
+
+<div class="hotspot operator"
+onclick="openObject('ОПЕРАТОР РЕАЛЬНОСТИ','ОБЪЕКТ №03')">
+</div>
+
+
+<div class="hotspot skull"
+onclick="openObject('ЧЕРЕП','ОБЪЕКТ №04')">
+</div>
+
+
+<div class="hotspot digital"
+onclick="openObject('ВЕРСИЯ ЧЕЛОВЕКА','ОБЪЕКТ №05')">
+</div>
+
+
+<div class="hotspot trans"
+onclick="openObject('TRANSHUMANISM','ОБЪЕКТ №06')">
+</div>
+
+
+<div class="hotspot rabbit"
+onclick="openObject('iPhuck 10','ОБЪЕКТ №07')">
+</div>
+
+
+<div class="hotspot book"
+onclick="openObject('ЧАПАЕВ И ПУСТОТА','АРТЕФАКТ №08')">
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="message" id="message">
+
+
+<h2 id="title"></h2>
+
+
+<p>
+
+СООБЩЕНИЕ ДЛЯ ТЕБЯ<br>
+ИЗ МИРА ОБЪЕКТА:<br><br>
+
+[ЗДЕСЬ БУДЕТ ЦИТАТА]
+
+</p>
+
+
+<div class="close" onclick="closeMessage()">
+ЗАКРЫТЬ
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function openObject(name,number){
+
+document.getElementById("title").innerHTML =
+number+"<br><br>"+name;
+
+
+document.getElementById("message").style.display="block";
+
+}
+
+
+
+function closeMessage(){
+
+document.getElementById("message").style.display="none";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

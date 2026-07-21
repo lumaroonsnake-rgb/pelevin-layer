@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Второй слой</title>
+
 
 <style>
 
@@ -26,9 +28,7 @@ body{
 }
 
 
-
 /* ЗАГРУЗКА */
-
 
 #boot{
 
@@ -36,7 +36,6 @@ body{
     inset:0;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -50,9 +49,9 @@ body{
 
 h1{
 
-    font-size:32px;
-    letter-spacing:5px;
-    margin-bottom:30px;
+    font-size:38px;
+    letter-spacing:6px;
+    margin-bottom:40px;
     font-weight:400;
 
 }
@@ -61,8 +60,8 @@ h1{
 
 .bar{
 
-    width:260px;
-    height:7px;
+    width:320px;
+    height:8px;
 
     background:#222;
 
@@ -90,15 +89,11 @@ h1{
 @keyframes load{
 
 from{
-
     width:0%;
-
 }
 
 to{
-
     width:100%;
-
 }
 
 }
@@ -107,11 +102,9 @@ to{
 
 #percent{
 
-    margin-top:18px;
+    margin-top:20px;
 
     color:#777;
-
-    font-size:13px;
 
 }
 
@@ -125,113 +118,92 @@ to{
 
     display:none;
 
-    min-height:100vh;
-
+    height:100vh;
     width:100vw;
 
-
     justify-content:center;
-
     align-items:center;
-
 
     flex-direction:column;
 
-
     text-align:center;
 
-
-    padding:20px;
+    padding:30px;
 
 }
-
 
 
 
 #title{
 
-    font-size:32px;
+    font-size:40px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
-    margin-bottom:20px;
+    margin-bottom:30px;
 
 }
-
 
 
 
 #text{
 
-    max-width:360px;
+    max-width:650px;
 
     color:#aaa;
 
-    line-height:1.5;
+    line-height:1.9;
 
-    margin-bottom:25px;
+    margin-bottom:35px;
 
-    font-size:16px;
+    font-size:18px;
 
 }
-
 
 
 
 img{
 
-    max-width:360px;
+    max-width:420px;
 
     width:85%;
 
-
-    border-radius:0;
-
-    box-shadow:none;
-
-
-    transition:0.5s;
+    border-radius:10px;
 
 }
 
 
 
 
-img:hover{
-
-    transform:scale(1.03);
-
-}
+/* КНОПКА СЛОЙ 3 */
 
 
+.layer-button{
 
+    margin-top:35px;
 
-/* КНОПКА */
-
-
-.small{
-
-    margin-top:20px;
-
-    color:#888;
-
-    font-size:12px;
-
-    letter-spacing:3px;
+    color:#aaa;
 
     text-decoration:none;
 
+    letter-spacing:4px;
+
+    font-size:16px;
+
+
     border:1px solid #333;
 
-    padding:10px 25px;
+    padding:14px 30px;
 
-    transition:0.3s;
+
+    transition:0.4s;
+
 
 }
 
 
 
-.small:hover{
+.layer-button:hover{
 
     color:#fff;
 
@@ -247,14 +219,20 @@ img:hover{
 </head>
 
 
+
 <body>
 
+
+
+<!-- ЗАГРУЗКА -->
 
 
 <div id="boot">
 
 
-<h1>ИНИЦИАЛИЗАЦИЯ</h1>
+<h1>
+ИНИЦИАЛИЗАЦИЯ
+</h1>
 
 
 <div class="bar">
@@ -264,6 +242,7 @@ img:hover{
 </div>
 
 
+
 <div id="percent">
 
 Проверка второго слоя...
@@ -271,10 +250,14 @@ img:hover{
 </div>
 
 
+
 </div>
 
 
 
+
+
+<!-- ОСНОВНАЯ СТРАНИЦА -->
 
 
 <div id="main">
@@ -293,19 +276,18 @@ img:hover{
 <div id="text">
 
 
-Ты увидел рисунок.
+Ты видишь изображение.
 
 <br><br>
 
-Но некоторые изображения существуют сразу в двух слоях.
+Но изображение —
+это только поверхность.
 
 <br><br>
 
-Перед тобой первый.
-
-<br>
-
-Второй начинается здесь.
+Некоторые объекты
+содержат больше информации,
+чем кажется.
 
 
 </div>
@@ -319,9 +301,9 @@ img:hover{
 
 
 
-<a href="layer3.html" class="small">
+<a href="layer3.html" class="layer-button">
 
-СЛОЙ №3
+СЛОЙ №3 ДОСТУПЕН
 
 </a>
 
@@ -355,6 +337,7 @@ document.body.style.overflow="auto";
 
 
 </script>
+
 
 
 

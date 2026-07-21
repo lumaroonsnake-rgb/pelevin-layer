@@ -21,9 +21,7 @@ body{
 
     background:#000;
     color:#eee;
-
     font-family:Consolas, monospace;
-
     text-align:center;
 
 }
@@ -36,14 +34,11 @@ body{
 }
 
 
-
 h1{
 
     font-size:34px;
     letter-spacing:5px;
-
     margin-bottom:25px;
-
     font-weight:400;
 
 }
@@ -53,42 +48,65 @@ h1{
 .intro{
 
     color:#aaa;
-
     line-height:1.8;
-
     margin-bottom:30px;
 
 }
 
 
-/* ОСНОВНОЙ ХОЛСТ */
+
+/* АДАПТИВНЫЙ КОНТЕЙНЕР */
 
 .picture{
 
     position:relative;
 
-    width:1054px;
+    width:100%;
+    max-width:1054px;
 
-    height:1492px;
+    aspect-ratio:1054 / 1492;
 
     margin:auto;
 
-    transform-origin:top center;
+    overflow:hidden;
 
 }
 
 
-.picture img{
+
+/* ФИКСИРОВАННЫЙ ХОЛСТ */
+
+.canvas{
+
+    position:absolute;
 
     width:1054px;
-
     height:1492px;
 
-    display:block;
+    left:0;
+    top:0;
+
+    transform-origin:top left;
 
 }
 
 
+
+.canvas img{
+
+    position:absolute;
+
+    width:1054px;
+    height:1492px;
+
+    left:0;
+    top:0;
+
+}
+
+
+
+/* ЗОНЫ КЛИКА */
 
 .hotspot{
 
@@ -117,6 +135,7 @@ h1{
 }
 
 
+
 /* КОСМОНАВТ */
 
 .astronaut{
@@ -128,6 +147,7 @@ h1{
     height:620px;
 
 }
+
 
 
 /* ВЕРСИЯ ЧЕЛОВЕКА */
@@ -143,6 +163,7 @@ h1{
 }
 
 
+
 /* ОПЕРАТОР */
 
 .operator{
@@ -154,6 +175,7 @@ h1{
     height:320px;
 
 }
+
 
 
 /* ЧЕРЕП */
@@ -169,6 +191,7 @@ h1{
 }
 
 
+
 /* TRANSHUMANISM */
 
 .trans{
@@ -182,7 +205,8 @@ h1{
 }
 
 
-/* IPHUCK */
+
+/* IPHUCK 10 */
 
 .rabbit{
 
@@ -193,6 +217,7 @@ h1{
     height:400px;
 
 }
+
 
 
 /* КНИГА */
@@ -217,7 +242,6 @@ h1{
     position:fixed;
 
     left:50%;
-
     top:50%;
 
     transform:translate(-50%,-50%);
@@ -227,7 +251,6 @@ h1{
     border:1px solid #555;
 
     width:90%;
-
     max-width:500px;
 
     padding:35px;
@@ -241,7 +264,6 @@ h1{
 .message h2{
 
     letter-spacing:3px;
-
     line-height:1.6;
 
 }
@@ -251,31 +273,28 @@ h1{
 .close{
 
     margin-top:25px;
-
     color:#777;
-
     cursor:pointer;
 
 }
 
 
 
-/* АДАПТАЦИЯ ТЕЛЕФОН */
+/* МАСШТАБ ВСЕГО ХОЛСТА НА ТЕЛЕФОНЕ */
 
 @media(max-width:1054px){
 
-    .picture{
+.canvas{
 
-        transform:scale(calc(100vw / 1054));
+    transform:scale(calc(100vw / 1054));
 
-        margin-bottom:calc(-1492px + (1492px * (100vw / 1054)));
-
-    }
+}
 
 }
 
 
 </style>
+
 
 </head>
 
@@ -305,6 +324,9 @@ h1{
 
 
 <div class="picture">
+
+
+<div class="canvas">
 
 
 <img src="print.jpg">
@@ -359,6 +381,11 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')"
 
 
 
+</div>
+
+
+
+
 <div class="message" id="message">
 
 
@@ -402,6 +429,7 @@ document.getElementById("title").innerHTML=text;
 document.getElementById("message").style.display="block";
 
 }
+
 
 
 function closeMessage(){

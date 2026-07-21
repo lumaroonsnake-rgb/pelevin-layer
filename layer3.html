@@ -8,6 +8,18 @@
 
 <title>Слой №3</title>
 
+    .counter{
+
+    margin-bottom:15px;
+
+    color:#777;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+}
+
 <style>
 
 *{
@@ -334,6 +346,14 @@ h1{
 КОСНИСЬ ОБЪЕКТА.<br><br>
 
 ОН ГОТОВ ГОВОРИТЬ.
+    
+
+</div>
+
+<div class="counter">
+
+ОБЪЕКТОВ ОБНАРУЖЕНО:
+<span id="found">0</span>/8
 
 </div>
 
@@ -454,6 +474,10 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
 <script>
 
 
+let foundObjects = [];
+
+
+
 function openObject(title, quote){
 
 
@@ -462,9 +486,30 @@ document.getElementById("title").innerHTML=title;
 document.getElementById("quote").innerHTML=quote;
 
 
+
+let objectNumber = title.match(/№\d+/);
+
+
+if(objectNumber){
+
+    if(!foundObjects.includes(objectNumber[0])){
+
+        foundObjects.push(objectNumber[0]);
+
+        document.getElementById("found").innerHTML = foundObjects.length;
+
+    }
+
+}
+
+
+
 document.getElementById("overlay").classList.add("active");
 
 document.getElementById("message").classList.add("active");
+
+
+}
 
 
 }

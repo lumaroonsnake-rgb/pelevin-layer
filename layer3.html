@@ -17,32 +17,45 @@
 }
 
 body{
+
     background:#000;
     color:#eee;
     font-family:Consolas, monospace;
     text-align:center;
+
+    overflow-x:hidden;
+
 }
+
 
 .container{
+
     padding:12px 15px;
+
 }
 
+
 h1{
+
     font-size:28px;
     letter-spacing:5px;
     margin-bottom:12px;
     font-weight:400;
+
 }
 
+
+
 .intro{
+
     color:#aaa;
     line-height:1.5;
     margin-bottom:15px;
     font-size:14px;
+
 }
 
 
-/* СЧЁТЧИК */
 
 .counter{
 
@@ -67,6 +80,7 @@ h1{
 }
 
 
+
 .picture img{
 
     width:100%;
@@ -80,6 +94,7 @@ h1{
 
 
 /* ЗОНЫ */
+
 
 .hotspot{
 
@@ -100,6 +115,7 @@ h1{
 }
 
 
+
 .astronaut{
 
     left:70.87%;
@@ -108,6 +124,7 @@ h1{
     height:41.55%;
 
 }
+
 
 
 .digital{
@@ -120,6 +137,7 @@ h1{
 }
 
 
+
 .operator{
 
     left:5.03%;
@@ -128,6 +146,7 @@ h1{
     height:21.45%;
 
 }
+
 
 
 .skull{
@@ -140,6 +159,7 @@ h1{
 }
 
 
+
 .trans{
 
     left:22.01%;
@@ -150,6 +170,7 @@ h1{
 }
 
 
+
 .rabbit{
 
     left:77.89%;
@@ -158,6 +179,7 @@ h1{
     height:26.81%;
 
 }
+
 
 
 .book{
@@ -171,7 +193,7 @@ h1{
 
 
 
-/* ЗАТЕМНЕНИЕ */
+/* ОКНО */
 
 .overlay{
 
@@ -187,6 +209,7 @@ h1{
 }
 
 
+
 .overlay.active{
 
     display:block;
@@ -194,8 +217,6 @@ h1{
 }
 
 
-
-/* ОКНО */
 
 .message{
 
@@ -226,6 +247,7 @@ h1{
 }
 
 
+
 .message.active{
 
     opacity:1;
@@ -235,7 +257,6 @@ h1{
     transform:translate(-50%,-50%) scale(1);
 
 }
-
 
 
 .message h2{
@@ -281,7 +302,6 @@ h1{
 }
 
 
-
 .close{
 
     margin-top:20px;
@@ -294,6 +314,331 @@ h1{
 
 }
 
+    
+
+
+
+
+/* ========================= */
+/* ФИНАЛЬНОЕ РАЗРУШЕНИЕ */
+/* ========================= */
+
+
+body.collapse{
+
+    animation:screenShake .12s infinite;
+
+}
+
+
+
+@keyframes screenShake{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    25%{
+        transform:translate(-4px,2px);
+    }
+
+    50%{
+        transform:translate(3px,-3px);
+    }
+
+    75%{
+        transform:translate(-3px,4px);
+    }
+
+    100%{
+        transform:translate(0,0);
+    }
+
+}
+
+
+
+
+.picture.glitch img{
+
+    animation:
+
+    imageGlitch .15s infinite,
+    imageDisappear 6s forwards;
+
+}
+
+
+
+@keyframes imageGlitch{
+
+
+    0%{
+
+        transform:translate(0);
+
+        filter:none;
+
+    }
+
+
+    20%{
+
+        transform:translate(-8px);
+
+        filter:
+
+        contrast(250%)
+        hue-rotate(90deg);
+
+    }
+
+
+    40%{
+
+        transform:translate(6px);
+
+        filter:
+
+        invert(.2)
+        contrast(300%);
+
+    }
+
+
+    60%{
+
+        transform:translate(-3px);
+
+        filter:
+
+        saturate(300%);
+
+    }
+
+
+    100%{
+
+        transform:translate(0);
+
+    }
+
+
+}
+
+
+
+
+@keyframes imageDisappear{
+
+
+    0%{
+
+        opacity:1;
+
+        clip-path:inset(0);
+
+    }
+
+
+
+    30%{
+
+        clip-path:
+
+        inset(15% 0 10% 0);
+
+        opacity:.8;
+
+    }
+
+
+
+    60%{
+
+        clip-path:
+
+        inset(50% 0 30% 0);
+
+        opacity:.4;
+
+    }
+
+
+
+    100%{
+
+        opacity:0;
+
+        clip-path:
+
+        inset(100% 0 100% 0);
+
+    }
+
+
+}
+
+
+
+
+/* ДИАГНОСТИКА */
+
+
+.diagnostic{
+
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    pointer-events:none;
+
+    font-size:18px;
+
+    letter-spacing:4px;
+
+    color:white;
+
+}
+
+
+
+.diagnostic.active{
+
+    display:block;
+
+}
+
+
+
+.diagnostic div{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    white-space:nowrap;
+
+}
+
+
+
+.line1{
+
+    top:30%;
+
+    color:red;
+
+}
+
+
+
+.line2{
+
+    top:38%;
+
+    color:white;
+
+}
+
+
+
+.line3{
+
+    top:46%;
+
+    color:red;
+
+}
+
+
+
+
+/* ФИНАЛЬНЫЙ ЭКРАН */
+
+
+.final{
+
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    z-index:200;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    color:#eee;
+
+    font-size:20px;
+
+    letter-spacing:5px;
+
+
+}
+
+
+
+.final.active{
+
+    display:flex;
+
+}
+
+
+
+.final p{
+
+    opacity:0;
+
+    margin:15px;
+
+}
+
+
+
+.final .show{
+
+    animation:textAppear 2s forwards;
+
+}
+
+
+
+@keyframes textAppear{
+
+
+    from{
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
 
 </style>
 
@@ -302,12 +647,16 @@ h1{
 
 <body>
 
+
 <div class="container">
 
 
 <h1>
+
 СЛОЙ 03 // OBJECT MEMORY
+
 </h1>
+
 
 
 <div class="intro">
@@ -322,17 +671,21 @@ h1{
 </div>
 
 
+
 <div class="counter">
 
-ОБЪЕКТОВ ОБНАРУЖЕНО: <span id="count">0</span>/8
+ОБЪЕКТОВ ОБНАРУЖЕНО:
+<span id="count">0</span>/8
 
 </div>
 
 
-<div class="picture">
+
+<div class="picture" id="picture">
 
 
 <img src="print.jpg">
+
 
 
 <div class="hotspot fox"
@@ -341,22 +694,25 @@ onclick="openObject('ОБЪЕКТ №01<br>ЛИСА',
 </div>
 
 
+
 <div class="hotspot astronaut"
 onclick="openObject('ОБЪЕКТ №02<br>КОСМОНАВТ',
 'История человечества... это история массовых дезинформаций. И не потому, что люди глупые и их легко обмануть. Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
 </div>
 
-    <div class="hotspot digital"
+
+
+<div class="hotspot digital"
 onclick="openObject('ОБЪЕКТ №03<br>ВЕРСИЯ ЧЕЛОВЕКА',
 'Дисциплина — это порядок. Порядок создает ритм, а ритм рождает свободу. Без дисциплины нет свободы. Беспорядок — это хаос. Хаос — это рабство.')">
 </div>
+
 
 
 <div class="hotspot operator"
 onclick="openObject('ОБЪЕКТ №04<br>ОПЕРАТОР РЕАЛЬНОСТИ',
 'Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
 </div>
-
 
 <div class="hotspot skull"
 onclick="openObject('ОБЪЕКТ №05<br>ЧЕРЕП',
@@ -370,10 +726,12 @@ onclick="openObject('ОБЪЕКТ №06<br>TRANSHUMANISM',
 </div>
 
 
+
 <div class="hotspot rabbit"
 onclick="openObject('ОБЪЕКТ №07<br>iPhuck 10',
 'Любой человек инсталлирует скачанные из сети программы на свой девайс с большой осторожностью. А их ведь можно стереть. В крайнем случае можно выбросить девайс и купить новый. Но на главный диск у себя в голове, который не поменять до смерти, человек доверчиво ставит что попало.')">
 </div>
+
 
 
 <div class="hotspot book"
@@ -382,13 +740,16 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
 </div>
 
 
+
 </div>
 
 </div>
+
 
 
 
 <div class="overlay" id="overlay"></div>
+
 
 
 <div class="message" id="message">
@@ -427,10 +788,87 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
 
 
 
+
+<div class="diagnostic" id="diagnostic">
+
+<div class="line1">
+MEMORY CHECK...
+</div>
+
+<div class="line2">
+OBJECT INDEX CORRUPTED
+</div>
+
+<div class="line3">
+VISUAL LAYER FAILURE
+</div>
+
+</div>
+
+
+
+
+<div class="final" id="final">
+
+<p id="final1">
+ОБЪЕКТ 09:
+<br><br>
+НАБЛЮДАТЕЛЬ
+</p>
+
+
+<p id="final2">
+
+РАСПОЛОЖЕНИЕ:
+<br><br>
+ПО ТУ СТОРОНУ ЭКРАНА
+
+</p>
+
+
+<p id="final3">
+
+НЕ ЗАКРЫВАЙ.
+
+</p>
+
+
+<p id="final4">
+
+Я ТЕБЯ ВИЖУ.
+
+</p>
+
+
+<p id="final5">
+
+УЛЫБНИСЬ.
+
+</p>
+
+
+<p id="final6">
+
+Я ЛЮБЛЮ ТЕБЯ.
+
+<br><br>
+
+ТВОЯ Lu
+
+</p>
+
+
+</div>
+
+
+
+
 <script>
 
 
 let foundObjects = [];
+
+
 
 
 function openObject(title, quote){
@@ -439,17 +877,36 @@ function openObject(title, quote){
 let objectNumber = title.match(/№0?([1-8])/);
 
 
+
 if(objectNumber){
 
-    let id = objectNumber[1];
 
-    if(!foundObjects.includes(id)){
+let id = objectNumber[1];
 
-        foundObjects.push(id);
 
-        document.getElementById("count").innerHTML = foundObjects.length;
 
-    }
+if(!foundObjects.includes(id)){
+
+
+foundObjects.push(id);
+
+
+document.getElementById("count").innerHTML =
+foundObjects.length;
+
+
+
+if(foundObjects.length === 8){
+
+
+setTimeout(startCollapse,1500);
+
+
+}
+
+
+}
+
 
 }
 
@@ -469,6 +926,9 @@ document.getElementById("message").classList.add("active");
 
 
 
+
+
+
 function closeMessage(){
 
 
@@ -478,6 +938,112 @@ document.getElementById("message").classList.remove("active");
 
 
 }
+
+
+
+
+
+
+function startCollapse(){
+
+
+closeMessage();
+
+
+
+document.body.classList.add("collapse");
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("diagnostic")
+.classList.add("active");
+
+
+document.getElementById("picture")
+.classList.add("glitch");
+
+
+
+},1500);
+
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("diagnostic")
+.classList.remove("active");
+
+
+document.getElementById("picture")
+.style.display="none";
+
+
+
+document.getElementById("final")
+.classList.add("active");
+
+
+
+showFinal();
+
+
+},8500);
+
+
+
+}
+
+
+
+
+
+function showFinal(){
+
+
+let lines=[
+
+"final1",
+
+"final2",
+
+"final3",
+
+"final4",
+
+"final5",
+
+"final6"
+
+];
+
+
+
+lines.forEach((line,index)=>{
+
+
+setTimeout(()=>{
+
+
+document.getElementById(line)
+.classList.add("show");
+
+
+
+},index*3000);
+
+
+
+});
+
+
+
+}
+
 
 
 

@@ -18,76 +18,79 @@
 
 
 body{
+
     background:#000;
     color:#eee;
+
     font-family:Consolas, monospace;
+
     text-align:center;
+
 }
 
 
 .container{
+
     padding:30px 15px;
+
 }
+
 
 
 h1{
+
     font-size:34px;
     letter-spacing:5px;
+
     margin-bottom:25px;
+
     font-weight:400;
+
 }
+
 
 
 .intro{
+
     color:#aaa;
+
     line-height:1.8;
+
     margin-bottom:30px;
+
 }
 
 
 
-/* ОБЛАСТЬ ДЛЯ АДАПТИВА */
+/* КАРТИНКА */
 
 .picture{
+
     position:relative;
+
     width:100%;
+
     max-width:1054px;
+
     margin:auto;
-    aspect-ratio:1054 / 1492;
-}
-
-
-/* НАСТОЯЩИЙ ХОЛСТ */
-
-.canvas{
-    position:absolute;
-
-    width:1054px;
-    height:1492px;
-
-    left:50%;
-    top:0;
-
-    transform-origin:top left;
-    transform:translateX(-50%);
-}
-
-
-.canvas img{
-
-    position:absolute;
-
-    width:1054px;
-    height:1492px;
-
-    left:0;
-    top:0;
 
 }
 
 
 
-/* КЛИКАБЕЛЬНЫЕ ЗОНЫ */
+.picture img{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+
+
+
+/* ЗОНЫ КЛИКА */
 
 .hotspot{
 
@@ -107,102 +110,125 @@ h1{
 
 .fox{
 
-left:23px;
-top:211px;
+    left:2.18%;
 
-width:380px;
-height:750px;
+    top:14.14%;
+
+    width:36.05%;
+
+    height:50.27%;
 
 }
+
 
 
 /* КОСМОНАВТ */
 
 .astronaut{
 
-left:747px;
-top:157px;
+    left:70.87%;
 
-width:280px;
-height:620px;
+    top:10.52%;
+
+    width:26.57%;
+
+    height:41.55%;
 
 }
+
 
 
 /* ВЕРСИЯ ЧЕЛОВЕКА */
 
 .digital{
 
-left:372px;
-top:214px;
+    left:35.29%;
 
-width:400px;
-height:820px;
+    top:14.34%;
+
+    width:37.95%;
+
+    height:54.96%;
 
 }
+
 
 
 /* ОПЕРАТОР */
 
 .operator{
 
-left:53px;
-top:977px;
+    left:5.03%;
 
-width:240px;
-height:320px;
+    top:65.48%;
+
+    width:22.77%;
+
+    height:21.45%;
 
 }
+
 
 
 /* ЧЕРЕП */
 
 .skull{
 
-left:396px;
-top:1020px;
+    left:37.57%;
 
-width:260px;
-height:340px;
+    top:68.36%;
+
+    width:24.67%;
+
+    height:22.79%;
 
 }
+
 
 
 /* TRANSHUMANISM */
 
 .trans{
 
-left:232px;
-top:1271px;
+    left:22.01%;
 
-width:170px;
-height:170px;
+    top:85.12%;
+
+    width:16.13%;
+
+    height:11.39%;
 
 }
+
 
 
 /* IPHUCK 10 */
 
 .rabbit{
 
-left:821px;
-top:786px;
+    left:77.89%;
 
-width:180px;
-height:400px;
+    top:52.68%;
+
+    width:17.08%;
+
+    height:26.81%;
 
 }
+
 
 
 /* КНИГА */
 
 .book{
 
-left:726px;
-top:1152px;
+    left:68.88%;
 
-width:180px;
-height:340px;
+    top:77.21%;
+
+    width:17.08%;
+
+    height:22.79%;
 
 }
 
@@ -211,69 +237,57 @@ height:340px;
 
 .message{
 
-display:none;
+    display:none;
 
-position:fixed;
+    position:fixed;
 
-left:50%;
-top:50%;
+    left:50%;
 
-transform:translate(-50%,-50%);
+    top:50%;
 
-background:#050505;
+    transform:translate(-50%,-50%);
 
-border:1px solid #555;
+    background:#050505;
 
-width:90%;
+    border:1px solid #555;
 
-max-width:500px;
+    width:90%;
 
-padding:35px;
+    max-width:500px;
 
-z-index:20;
+    padding:35px;
+
+    z-index:20;
 
 }
+
 
 
 .message h2{
 
-letter-spacing:3px;
-line-height:1.6;
+    letter-spacing:3px;
+
+    line-height:1.6;
 
 }
+
 
 
 .close{
 
-margin-top:25px;
+    margin-top:25px;
 
-color:#777;
+    color:#777;
 
-cursor:pointer;
-
-}
-
-
-
-/* ТЕЛЕФОН */
-
-@media(max-width:1054px){
-
-.canvas{
-
-transform:
-translateX(-50%)
-scale(calc(100vw / 1054));
-
-}
+    cursor:pointer;
 
 }
 
 
 </style>
 
-</head>
 
+</head>
 
 
 <body>
@@ -285,6 +299,7 @@ scale(calc(100vw / 1054));
 <h1>
 СЛОЙ №3
 </h1>
+
 
 
 <div class="intro">
@@ -301,9 +316,6 @@ scale(calc(100vw / 1054));
 
 
 <div class="picture">
-
-
-<div class="canvas">
 
 
 <img src="print.jpg">
@@ -350,7 +362,6 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')"
 </div>
 
 
-</div>
 
 </div>
 
@@ -394,6 +405,7 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')"
 
 <script>
 
+
 function openObject(text){
 
 document.getElementById("title").innerHTML=text;
@@ -403,13 +415,16 @@ document.getElementById("message").style.display="block";
 }
 
 
+
 function closeMessage(){
 
 document.getElementById("message").style.display="none";
 
 }
 
+
 </script>
+
 
 
 </body>

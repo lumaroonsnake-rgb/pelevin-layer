@@ -18,78 +18,59 @@
 
 
 body{
-
     background:#000;
     color:#eee;
     font-family:Consolas, monospace;
     text-align:center;
-
 }
 
 
 .container{
-
     padding:30px 15px;
-
 }
 
 
 h1{
-
     font-size:34px;
     letter-spacing:5px;
     margin-bottom:25px;
     font-weight:400;
-
 }
-
 
 
 .intro{
-
     color:#aaa;
     line-height:1.8;
     margin-bottom:30px;
-
 }
 
 
 
-/* АДАПТИВНЫЙ КОНТЕЙНЕР */
+/* ОБЛАСТЬ ДЛЯ АДАПТИВА */
 
 .picture{
-
     position:relative;
-
     width:100%;
     max-width:1054px;
-
-    aspect-ratio:1054 / 1492;
-
     margin:auto;
-
-    overflow:hidden;
-
+    aspect-ratio:1054 / 1492;
 }
 
 
-
-/* ФИКСИРОВАННЫЙ ХОЛСТ */
+/* НАСТОЯЩИЙ ХОЛСТ */
 
 .canvas{
-
     position:absolute;
 
     width:1054px;
     height:1492px;
 
-    left:0;
+    left:50%;
     top:0;
 
     transform-origin:top left;
-
+    transform:translateX(-50%);
 }
-
 
 
 .canvas img{
@@ -106,7 +87,7 @@ h1{
 
 
 
-/* ЗОНЫ КЛИКА */
+/* КЛИКАБЕЛЬНЫЕ ЗОНЫ */
 
 .hotspot{
 
@@ -126,109 +107,102 @@ h1{
 
 .fox{
 
-    left:23px;
-    top:211px;
+left:23px;
+top:211px;
 
-    width:380px;
-    height:750px;
+width:380px;
+height:750px;
 
 }
-
 
 
 /* КОСМОНАВТ */
 
 .astronaut{
 
-    left:747px;
-    top:157px;
+left:747px;
+top:157px;
 
-    width:280px;
-    height:620px;
+width:280px;
+height:620px;
 
 }
-
 
 
 /* ВЕРСИЯ ЧЕЛОВЕКА */
 
 .digital{
 
-    left:372px;
-    top:214px;
+left:372px;
+top:214px;
 
-    width:400px;
-    height:820px;
+width:400px;
+height:820px;
 
 }
-
 
 
 /* ОПЕРАТОР */
 
 .operator{
 
-    left:53px;
-    top:977px;
+left:53px;
+top:977px;
 
-    width:240px;
-    height:320px;
+width:240px;
+height:320px;
 
 }
-
 
 
 /* ЧЕРЕП */
 
 .skull{
 
-    left:396px;
-    top:1020px;
+left:396px;
+top:1020px;
 
-    width:260px;
-    height:340px;
+width:260px;
+height:340px;
 
 }
-
 
 
 /* TRANSHUMANISM */
 
 .trans{
 
-    left:232px;
-    top:1271px;
+left:232px;
+top:1271px;
 
-    width:170px;
-    height:170px;
+width:170px;
+height:170px;
 
 }
-
 
 
 /* IPHUCK 10 */
 
 .rabbit{
 
-    left:821px;
-    top:786px;
+left:821px;
+top:786px;
 
-    width:180px;
-    height:400px;
+width:180px;
+height:400px;
 
 }
-
 
 
 /* КНИГА */
 
 .book{
 
-    left:726px;
-    top:1152px;
+left:726px;
+top:1152px;
 
-    width:180px;
-    height:340px;
+width:180px;
+height:340px;
 
 }
 
@@ -237,56 +211,59 @@ h1{
 
 .message{
 
-    display:none;
+display:none;
 
-    position:fixed;
+position:fixed;
 
-    left:50%;
-    top:50%;
+left:50%;
+top:50%;
 
-    transform:translate(-50%,-50%);
+transform:translate(-50%,-50%);
 
-    background:#050505;
+background:#050505;
 
-    border:1px solid #555;
+border:1px solid #555;
 
-    width:90%;
-    max-width:500px;
+width:90%;
 
-    padding:35px;
+max-width:500px;
 
-    z-index:20;
+padding:35px;
+
+z-index:20;
 
 }
-
 
 
 .message h2{
 
-    letter-spacing:3px;
-    line-height:1.6;
+letter-spacing:3px;
+line-height:1.6;
 
 }
-
 
 
 .close{
 
-    margin-top:25px;
-    color:#777;
-    cursor:pointer;
+margin-top:25px;
+
+color:#777;
+
+cursor:pointer;
 
 }
 
 
 
-/* МАСШТАБ ВСЕГО ХОЛСТА НА ТЕЛЕФОНЕ */
+/* ТЕЛЕФОН */
 
 @media(max-width:1054px){
 
 .canvas{
 
-    transform:scale(calc(100vw / 1054));
+transform:
+translateX(-50%)
+scale(calc(100vw / 1054));
 
 }
 
@@ -295,8 +272,8 @@ h1{
 
 </style>
 
-
 </head>
+
 
 
 <body>
@@ -373,16 +350,12 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')"
 </div>
 
 
+</div>
 
 </div>
 
 
 </div>
-
-
-
-</div>
-
 
 
 
@@ -421,7 +394,6 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА')"
 
 <script>
 
-
 function openObject(text){
 
 document.getElementById("title").innerHTML=text;
@@ -431,13 +403,11 @@ document.getElementById("message").style.display="block";
 }
 
 
-
 function closeMessage(){
 
 document.getElementById("message").style.display="none";
 
 }
-
 
 </script>
 

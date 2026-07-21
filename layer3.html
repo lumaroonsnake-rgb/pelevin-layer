@@ -26,13 +26,19 @@ body{
 
     text-align:center;
 
+    overflow-x:hidden;
+
 }
 
 
 
+/* ОСНОВА */
+
 .container{
 
-    padding:30px 15px;
+    padding:15px;
+
+    transition:1s;
 
 }
 
@@ -40,10 +46,11 @@ body{
 
 h1{
 
-    font-size:34px;
+    font-size:30px;
+
     letter-spacing:5px;
 
-    margin-bottom:25px;
+    margin-bottom:15px;
 
     font-weight:400;
 
@@ -55,11 +62,14 @@ h1{
 
     color:#aaa;
 
-    line-height:1.8;
+    line-height:1.6;
 
-    margin-bottom:30px;
+    margin-bottom:15px;
+
+    font-size:15px;
 
 }
+
 
 
 
@@ -73,6 +83,8 @@ h1{
 
     max-width:1054px;
 
+    max-height:70vh;
+
     margin:auto;
 
 }
@@ -85,13 +97,17 @@ h1{
 
     height:auto;
 
+    max-height:70vh;
+
+    object-fit:contain;
+
     display:block;
 
 }
 
 
 
-/* НЕВИДИМЫЕ ЗОНЫ */
+/* ЗОНЫ ОБЪЕКТОВ */
 
 .hotspot{
 
@@ -187,7 +203,7 @@ h1{
 
 
 
-/* IPHUCK 10 */
+/* IPHUCK */
 
 .rabbit{
 
@@ -215,7 +231,6 @@ h1{
 
 
 
-
 /* ЗАТЕМНЕНИЕ */
 
 .overlay{
@@ -226,7 +241,7 @@ h1{
 
     inset:0;
 
-    background:rgba(0,0,0,0.75);
+    background:rgba(0,0,0,.75);
 
     z-index:10;
 
@@ -242,7 +257,9 @@ h1{
 
 
 
-/* ОКНО ДОСТУПА */
+
+
+/* ОКНО ПАМЯТИ */
 
 .message{
 
@@ -256,35 +273,28 @@ h1{
 
     top:50%;
 
-    transform:translate(-50%,-50%) scale(0.96);
+    transform:translate(-50%,-50%) scale(.96);
 
 
     background:#050505;
 
     border:1px solid #555;
 
-
     width:90%;
 
     max-width:520px;
 
-
-    padding:30px;
-
+    padding:22px;
 
     z-index:20;
 
 
-    transition:
-
-    opacity .5s ease,
-
-    transform .5s ease;
+    transition:.5s;
 
 
     box-shadow:
 
-    0 0 25px rgba(255,255,255,0.08);
+    0 0 25px rgba(255,255,255,.08);
 
 }
 
@@ -318,7 +328,6 @@ h1{
 
     background:#777;
 
-
     animation:scan 2s infinite;
 
 }
@@ -327,25 +336,25 @@ h1{
 
 @keyframes scan{
 
-    0%{
+0%{
 
-        opacity:.2;
+opacity:.2;
 
-    }
-
-
-    50%{
-
-        opacity:1;
-
-    }
+}
 
 
-    100%{
+50%{
 
-        opacity:.2;
+opacity:1;
 
-    }
+}
+
+
+100%{
+
+opacity:.2;
+
+}
 
 }
 
@@ -353,11 +362,11 @@ h1{
 
 .message h2{
 
-    font-size:22px;
+    font-size:20px;
 
     letter-spacing:3px;
 
-    line-height:1.5;
+    line-height:1.4;
 
 }
 
@@ -365,9 +374,9 @@ h1{
 
 .archive{
 
-    margin:20px 0;
+    margin:15px 0;
 
-    padding:12px;
+    padding:10px;
 
     border-top:1px solid #333;
 
@@ -375,7 +384,7 @@ h1{
 
     text-align:left;
 
-    font-size:12px;
+    font-size:11px;
 
     color:#888;
 
@@ -387,13 +396,13 @@ h1{
 
 .message p{
 
-    font-size:15px;
+    font-size:14px;
 
-    line-height:1.7;
+    line-height:1.6;
 
     color:#ccc;
 
-    max-height:60vh;
+    max-height:50vh;
 
     overflow-y:auto;
 
@@ -403,7 +412,7 @@ h1{
 
 .close{
 
-    margin-top:25px;
+    margin-top:20px;
 
     color:#aaa;
 
@@ -414,198 +423,46 @@ h1{
 }
 
 
-</style>
+/* ФИНАЛЬНЫЙ ЭКРАН */
 
-</head>
 
-    <body>
+#ending{
 
+    display:none;
 
-<div class="container">
+    position:fixed;
 
+    inset:0;
 
-<h1>
-СЛОЙ №3
-</h1>
+    background:#000;
 
+    z-index:100;
 
+    justify-content:center;
 
-<div class="intro">
+    align-items:center;
 
-НЕ ВСЁ, ЧТО ТЫ ВИДИШЬ,<br>
-ЯВЛЯЕТСЯ ПРОСТО РИСУНКОМ.<br><br>
+    flex-direction:column;
 
-КОСНИСЬ ОДНОГО ИЗ ОБЪЕКТОВ.<br><br>
+    color:#aaa;
 
-ОН ГОТОВ ГОВОРИТЬ.
+    letter-spacing:3px;
 
-</div>
+    line-height:2;
 
+    font-size:14px;
 
+    padding:30px;
 
-<div class="picture">
-
-
-<img src="print.jpg">
-
-
-
-<div class="hotspot fox"
-onclick="openObject('ОБЪЕКТ №01<br>ЛИСА',
-'Красота не принадлежит женщине и не является ее собственным свойством – просто в определенную пору жизни ее лицо отражает красоту, как оконное стекло – невидимое за крышами домов солнце... Но солнце, как известно, вовсе не в стеклах, на которые мы смотрим. Оно в нас.')">
-</div>
-
-
-
-<div class="hotspot astronaut"
-onclick="openObject('ОБЪЕКТ №02<br>КОСМОНАВТ',
-'История человечества... это история массовых дезинформаций. И не потому, что люди глупые и их легко обмануть. Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
-</div>
-
-
-
-<div class="hotspot digital"
-onclick="openObject('ОБЪЕКТ №03<br>ВЕРСИЯ ЧЕЛОВЕКА',
-'Дисциплина — это порядок. Порядок создает ритм, а ритм рождает свободу. Без дисциплины нет свободы. Беспорядок — это хаос. Хаос — это рабство.')">
-</div>
-
-
-
-<div class="hotspot operator"
-onclick="openObject('ОБЪЕКТ №04<br>ОПЕРАТОР РЕАЛЬНОСТИ',
-'Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
-</div>
-
-
-
-<div class="hotspot skull"
-onclick="openObject('ОБЪЕКТ №05<br>ЧЕРЕП',
-'Мы любим вовсе не тех, кто сделал нам что-то хорошее. Мы любим тех, кому сделали что-то хорошее мы сами.')">
-</div>
-
-
-
-<div class="hotspot trans"
-onclick="openObject('ОБЪЕКТ №06<br>TRANSHUMANISM',
-'Человеку труднее всего расстаться не с воспоминаниями, а с привычкой вспоминать.')">
-</div>
-
-
-
-<div class="hotspot rabbit"
-onclick="openObject('ОБЪЕКТ №07<br>iPhuck 10',
-'Любой человек инсталлирует скачанные из сети программы на свой девайс с большой осторожностью. А их ведь можно стереть. В крайнем случае можно выбросить девайс и купить новый. Но на главный диск у себя в голове, который не поменять до смерти, человек доверчиво ставит что попало. Немедленно и с песнями выжигает в нейронах на все свое короткое «всегда».')">
-</div>
-
-
-
-<div class="hotspot book"
-onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
-'Поскольку бытие вещей заключается в их воспринимаемости, любая трансформация может происходить двумя путями – быть либо восприятием трансформации, либо трансформацией восприятия.')">
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- затемнение -->
-
-<div class="overlay" id="overlay"></div>
-
-
-
-<!-- окно памяти -->
-
-
-<div class="message" id="message">
-
-
-<h2 id="title"></h2>
-
-
-<div class="archive">
-
-АРХИВ: OBJECT MEMORY<br>
-СЛОЙ: 03<br>
-ДОСТУП: ОТКРЫТ
-
-</div>
-
-
-
-<p>
-
-ФРАГМЕНТ ПРЕДСКАЗАНИЯ<br>
-ИЗ ПАМЯТИ ОБЪЕКТА:<br><br>
-
-
-<span id="quote"></span>
-
-
-</p>
-
-
-
-<div class="close" onclick="closeMessage()">
-
-ПРЕКРАТИТЬ ДОСТУП
-
-</div>
-
-
-
-</div>
-
-
-
-
-<script>
-
-
-function openObject(title, quote){
-
-
-document.getElementById("title").innerHTML = title;
-
-
-document.getElementById("quote").innerHTML = quote;
-
-
-
-document.getElementById("overlay").classList.add("active");
-
-
-document.getElementById("message").classList.add("active");
-
-
+    text-align:center;
 
 }
 
 
 
+#ending.show{
 
-function closeMessage(){
-
-
-document.getElementById("overlay").classList.remove("active");
-
-
-document.getElementById("message").classList.remove("active");
-
+    display:flex;
 
 }
 
-
-
-</script>
-
-
-
-</body>
-
-</html>

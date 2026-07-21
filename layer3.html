@@ -16,23 +16,27 @@
     box-sizing:border-box;
 }
 
+
 body{
 
     background:#000;
     color:#eee;
     font-family:Consolas, monospace;
     text-align:center;
-
-    overflow-x:hidden;
+    overflow:hidden;
 
 }
+
 
 
 .container{
 
     padding:12px 15px;
 
+    transition:2s;
+
 }
+
 
 
 h1{
@@ -93,7 +97,7 @@ h1{
 
 
 
-/* ЗОНЫ */
+/* ОБЪЕКТЫ */
 
 
 .hotspot{
@@ -193,7 +197,8 @@ h1{
 
 
 
-/* ОКНО */
+/* ОКНО ОБЪЕКТА */
+
 
 .overlay{
 
@@ -204,10 +209,9 @@ h1{
 
     background:rgba(0,0,0,.75);
 
-    z-index:10;
+    z-index:20;
 
 }
-
 
 
 .overlay.active{
@@ -229,7 +233,9 @@ h1{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%) scale(.96);
+    transform:
+    translate(-50%,-50%)
+    scale(.96);
 
     background:#050505;
 
@@ -240,7 +246,7 @@ h1{
 
     padding:22px;
 
-    z-index:20;
+    z-index:30;
 
     transition:.5s;
 
@@ -254,9 +260,12 @@ h1{
 
     pointer-events:auto;
 
-    transform:translate(-50%,-50%) scale(1);
+    transform:
+    translate(-50%,-50%)
+    scale(1);
 
 }
+
 
 
 .message h2{
@@ -265,6 +274,7 @@ h1{
     letter-spacing:3px;
 
 }
+
 
 
 .archive{
@@ -302,6 +312,7 @@ h1{
 }
 
 
+
 .close{
 
     margin-top:20px;
@@ -315,166 +326,120 @@ h1{
 }
 
     
+/* ============================= */
+/* РАЗРУШЕНИЕ СЛОЯ */
+/* ============================= */
 
 
+body.collapse .container{
 
-
-/* ========================= */
-/* ФИНАЛЬНОЕ РАЗРУШЕНИЕ */
-/* ========================= */
-
-
-body.collapse{
-
-    animation:screenShake .12s infinite;
+    animation:layerBreak 5s forwards;
 
 }
 
 
 
-@keyframes screenShake{
-
-    0%{
-        transform:translate(0,0);
-    }
-
-    25%{
-        transform:translate(-4px,2px);
-    }
-
-    50%{
-        transform:translate(3px,-3px);
-    }
-
-    75%{
-        transform:translate(-3px,4px);
-    }
-
-    100%{
-        transform:translate(0,0);
-    }
-
-}
-
-
-
-
-.picture.glitch img{
-
-    animation:
-
-    imageGlitch .15s infinite,
-    imageDisappear 6s forwards;
-
-}
-
-
-
-@keyframes imageGlitch{
+@keyframes layerBreak{
 
 
     0%{
-
-        transform:translate(0);
 
         filter:none;
+
+        transform:none;
+
+        opacity:1;
 
     }
 
 
     20%{
 
-        transform:translate(-8px);
-
         filter:
-
         contrast(250%)
-        hue-rotate(90deg);
+        brightness(1.5);
+
+        transform:
+        translateX(-5px);
 
     }
 
 
-    40%{
-
-        transform:translate(6px);
+    45%{
 
         filter:
+        contrast(400%)
+        blur(1px);
 
-        invert(.2)
-        contrast(300%);
-
-    }
-
-
-    60%{
-
-        transform:translate(-3px);
-
-        filter:
-
-        saturate(300%);
+        transform:
+        translateX(7px);
 
     }
 
 
-    100%{
+    70%{
 
-        transform:translate(0);
+        opacity:.5;
 
-    }
-
-
-}
-
-
-
-
-@keyframes imageDisappear{
-
-
-    0%{
-
-        opacity:1;
-
-        clip-path:inset(0);
+        transform:
+        translateX(-15px)
+        skewX(5deg);
 
     }
-
-
-
-    30%{
-
-        clip-path:
-
-        inset(15% 0 10% 0);
-
-        opacity:.8;
-
-    }
-
-
-
-    60%{
-
-        clip-path:
-
-        inset(50% 0 30% 0);
-
-        opacity:.4;
-
-    }
-
 
 
     100%{
 
         opacity:0;
 
-        clip-path:
-
-        inset(100% 0 100% 0);
+        transform:
+        scale(1.05)
+        translateY(-20px);
 
     }
+
+}
+
+
+
+
+/* ТРЯСКА СИСТЕМЫ */
+
+
+body.shake{
+
+    animation:shake .12s infinite;
+
+}
+
+
+
+@keyframes shake{
+
+
+0%{
+    transform:translate(0);
+}
+
+
+25%{
+    transform:translate(-5px,3px);
+}
+
+
+50%{
+    transform:translate(4px,-4px);
+}
+
+
+75%{
+    transform:translate(-3px,2px);
+}
+
+
+100%{
+    transform:translate(0);
+}
 
 
 }
@@ -482,27 +447,304 @@ body.collapse{
 
 
 
+/* ГЛИТЧ КАРТИНКИ */
+
+
+.picture.break img{
+
+
+animation:
+
+imageBreak .2s infinite,
+fadeImage 5s forwards;
+
+
+}
+
+
+
+@keyframes imageBreak{
+
+
+0%{
+
+transform:translate(0);
+
+}
+
+
+25%{
+
+transform:translate(-10px);
+
+filter:
+contrast(300%)
+hue-rotate(90deg);
+
+}
+
+
+
+50%{
+
+transform:translate(8px);
+
+filter:
+invert(.2)
+contrast(250%);
+
+}
+
+
+
+75%{
+
+transform:translate(-4px);
+
+}
+
+
+
+100%{
+
+transform:translate(0);
+
+}
+
+
+}
+
+
+
+
+
+@keyframes fadeImage{
+
+
+0%{
+
+opacity:1;
+
+}
+
+
+50%{
+
+clip-path:
+inset(30% 0 20% 0);
+
+opacity:.5;
+
+}
+
+
+
+100%{
+
+opacity:0;
+
+clip-path:
+inset(100% 0 100% 0);
+
+}
+
+
+}
+
+
+
+
+/* РАЗБИТОЕ СТЕКЛО */
+
+
+.cracks{
+
+
+position:fixed;
+
+inset:0;
+
+z-index:120;
+
+pointer-events:none;
+
+display:none;
+
+
+}
+
+
+
+.cracks.active{
+
+display:block;
+
+}
+
+
+
+.cracks:before{
+
+
+content:"";
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+width:2px;
+height:100%;
+
+background:#aaa;
+
+transform:
+rotate(18deg);
+
+opacity:.7;
+
+
+}
+
+
+
+.cracks:after{
+
+
+content:"";
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+width:100%;
+height:2px;
+
+background:#aaa;
+
+transform:
+rotate(-8deg);
+
+
+opacity:.5;
+
+
+}
+
+
+
+/* ЦИФРОВОЙ ДОЖДЬ */
+
+
+.code-rain{
+
+
+position:fixed;
+
+inset:0;
+
+z-index:140;
+
+overflow:hidden;
+
+pointer-events:none;
+
+display:none;
+
+
+}
+
+
+
+.code-rain.active{
+
+display:block;
+
+}
+
+
+
+.code-rain span{
+
+
+position:absolute;
+
+top:-150px;
+
+font-family:Consolas,monospace;
+
+font-size:11px;
+
+line-height:14px;
+
+writing-mode:vertical-rl;
+
+color:#aaa;
+
+opacity:.7;
+
+animation:rain linear infinite;
+
+
+}
+
+
+
+@keyframes rain{
+
+
+0%{
+
+transform:
+translateY(-150px);
+
+opacity:0;
+
+}
+
+
+15%{
+
+opacity:.8;
+
+}
+
+
+
+100%{
+
+transform:
+translateY(120vh);
+
+opacity:0;
+
+}
+
+
+}
+
+    
 /* ДИАГНОСТИКА */
 
 
 .diagnostic{
 
 
-    position:fixed;
+position:fixed;
 
-    inset:0;
+inset:0;
 
-    z-index:100;
+z-index:130;
 
-    display:none;
+display:none;
 
-    pointer-events:none;
+pointer-events:none;
 
-    font-size:18px;
+font-size:14px;
 
-    letter-spacing:4px;
+letter-spacing:4px;
 
-    color:white;
 
 }
 
@@ -510,7 +752,7 @@ body.collapse{
 
 .diagnostic.active{
 
-    display:block;
+display:block;
 
 }
 
@@ -518,46 +760,46 @@ body.collapse{
 
 .diagnostic div{
 
-    position:absolute;
 
-    left:50%;
+position:absolute;
 
-    transform:translateX(-50%);
+left:50%;
 
-    white-space:nowrap;
+transform:
+translateX(-50%);
+
 
 }
 
 
 
-.line1{
+.diag1{
 
-    top:30%;
+top:25%;
 
-    color:red;
-
-}
-
-
-
-.line2{
-
-    top:38%;
-
-    color:white;
+color:#fff;
 
 }
 
 
 
-.line3{
+.diag2{
 
-    top:46%;
+top:35%;
 
-    color:red;
+color:#f00;
 
 }
 
+
+
+.diag3{
+
+top:45%;
+
+color:#fff;
+
+}
 
 
 
@@ -567,27 +809,27 @@ body.collapse{
 .final{
 
 
-    position:fixed;
+position:fixed;
 
-    inset:0;
+inset:0;
 
-    background:#000;
+background:#000;
 
-    z-index:200;
+z-index:200;
 
-    display:none;
+display:none;
 
-    justify-content:center;
+align-items:center;
 
-    align-items:center;
+justify-content:center;
 
-    flex-direction:column;
+flex-direction:column;
 
-    color:#eee;
+color:#eee;
 
-    font-size:20px;
+font-size:20px;
 
-    letter-spacing:5px;
+letter-spacing:5px;
 
 
 }
@@ -596,47 +838,55 @@ body.collapse{
 
 .final.active{
 
-    display:flex;
+display:flex;
 
 }
 
 
 
-.final p{
+.final-line{
 
-    opacity:0;
 
-    margin:15px;
+min-height:30px;
+
+margin:15px;
+
+opacity:0;
+
 
 }
 
 
 
-.final .show{
+.final-line.show{
 
-    animation:textAppear 2s forwards;
+
+animation:typeText 2s forwards;
+
 
 }
 
 
 
-@keyframes textAppear{
+@keyframes typeText{
 
 
-    from{
+from{
 
-        opacity:0;
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-    }
+opacity:0;
 
 }
+
+
+to{
+
+opacity:1;
+
+}
+
+
+}
+
 
 
 
@@ -689,54 +939,72 @@ body.collapse{
 
 
 <div class="hotspot fox"
+
 onclick="openObject('ОБЪЕКТ №01<br>ЛИСА',
 'Красота не принадлежит женщине и не является ее собственным свойством – просто в определенную пору жизни ее лицо отражает красоту, как оконное стекло – невидимое за крышами домов солнце... Но солнце, как известно, вовсе не в стеклах, на которые мы смотрим. Оно в нас.')">
+
 </div>
 
 
 
 <div class="hotspot astronaut"
+
 onclick="openObject('ОБЪЕКТ №02<br>КОСМОНАВТ',
 'История человечества... это история массовых дезинформаций. И не потому, что люди глупые и их легко обмануть. Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
+
 </div>
 
 
 
 <div class="hotspot digital"
+
 onclick="openObject('ОБЪЕКТ №03<br>ВЕРСИЯ ЧЕЛОВЕКА',
 'Дисциплина — это порядок. Порядок создает ритм, а ритм рождает свободу. Без дисциплины нет свободы. Беспорядок — это хаос. Хаос — это рабство.')">
+
 </div>
 
 
 
 <div class="hotspot operator"
+
 onclick="openObject('ОБЪЕКТ №04<br>ОПЕРАТОР РЕАЛЬНОСТИ',
 'Люди умны и проницательны. Но они с удовольствием поверят в самую гнусную ложь, если в результате им устроят хорошую жизнь.')">
+
 </div>
 
+    
 <div class="hotspot skull"
+
 onclick="openObject('ОБЪЕКТ №05<br>ЧЕРЕП',
 'Мы любим вовсе не тех, кто сделал нам что-то хорошее. Мы любим тех, кому сделали что-то хорошее мы сами.')">
+
 </div>
+
 
 
 <div class="hotspot trans"
+
 onclick="openObject('ОБЪЕКТ №06<br>TRANSHUMANISM',
 'Человеку труднее всего расстаться не с воспоминаниями, а с привычкой вспоминать.')">
+
 </div>
 
 
 
 <div class="hotspot rabbit"
+
 onclick="openObject('ОБЪЕКТ №07<br>iPhuck 10',
 'Любой человек инсталлирует скачанные из сети программы на свой девайс с большой осторожностью. А их ведь можно стереть. В крайнем случае можно выбросить девайс и купить новый. Но на главный диск у себя в голове, который не поменять до смерти, человек доверчиво ставит что попало.')">
+
 </div>
 
 
 
 <div class="hotspot book"
+
 onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
 'Поскольку бытие вещей заключается в их воспринимаемости, любая трансформация может происходить двумя путями – быть либо восприятием трансформации, либо трансформацией восприятия.')">
+
 </div>
 
 
@@ -751,9 +1019,7 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
 <div class="overlay" id="overlay"></div>
 
 
-
 <div class="message" id="message">
-
 
 <h2 id="title"></h2>
 
@@ -791,63 +1057,91 @@ onclick="openObject('АРТЕФАКТ №08<br>ЧАПАЕВ И ПУСТОТА',
 
 <div class="diagnostic" id="diagnostic">
 
-<div class="line1">
+<div class="diag1">
+
 MEMORY CHECK...
+
 </div>
 
-<div class="line2">
-OBJECT INDEX CORRUPTED
-</div>
 
-<div class="line3">
+<div class="diag2">
+
 VISUAL LAYER FAILURE
-</div>
 
 </div>
 
+
+<div class="diag3">
+
+OBJECT INDEX CORRUPTED
+
+</div>
+
+
+</div>
+
+
+
+<div class="cracks" id="cracks"></div>
+
+
+
+<div class="code-rain" id="codeRain"></div>
 
 
 
 <div class="final" id="final">
 
-<p id="final1">
+
+<div class="final-line" id="f1">
+
 ОБЪЕКТ 09:
+
 <br><br>
+
 НАБЛЮДАТЕЛЬ
-</p>
+
+</div>
 
 
-<p id="final2">
+
+<div class="final-line" id="f2">
 
 РАСПОЛОЖЕНИЕ:
+
 <br><br>
+
 ПО ТУ СТОРОНУ ЭКРАНА
 
-</p>
+</div>
 
 
-<p id="final3">
+
+<div class="final-line" id="f3">
 
 НЕ ЗАКРЫВАЙ.
 
-</p>
+</div>
 
 
-<p id="final4">
+
+<div class="final-line" id="f4">
 
 Я ТЕБЯ ВИЖУ.
 
-</p>
+</div>
 
 
-<p id="final5">
+
+<div class="final-line" id="f5">
 
 УЛЫБНИСЬ.
 
-</p>
+</div>
 
 
-<p id="final6">
+
+<div class="final-line" id="f6">
 
 Я ЛЮБЛЮ ТЕБЯ.
 
@@ -855,7 +1149,8 @@ VISUAL LAYER FAILURE
 
 ТВОЯ Lu
 
-</p>
+</div>
+
 
 
 </div>
@@ -866,23 +1161,20 @@ VISUAL LAYER FAILURE
 <script>
 
 
-let foundObjects = [];
+let foundObjects=[];
 
 
 
-
-function openObject(title, quote){
-
-
-let objectNumber = title.match(/№0?([1-8])/);
+function openObject(title,quote){
 
 
+let num=title.match(/№0?([1-8])/);
 
-if(objectNumber){
+
+if(num){
 
 
-let id = objectNumber[1];
-
+let id=num[1];
 
 
 if(!foundObjects.includes(id)){
@@ -891,12 +1183,12 @@ if(!foundObjects.includes(id)){
 foundObjects.push(id);
 
 
-document.getElementById("count").innerHTML =
+document.getElementById("count").innerHTML=
 foundObjects.length;
 
 
 
-if(foundObjects.length === 8){
+if(foundObjects.length===8){
 
 
 setTimeout(startCollapse,1500);
@@ -928,7 +1220,6 @@ document.getElementById("message").classList.add("active");
 
 
 
-
 function closeMessage(){
 
 
@@ -943,31 +1234,47 @@ document.getElementById("message").classList.remove("active");
 
 
 
-
 function startCollapse(){
+
 
 
 closeMessage();
 
 
 
-document.body.classList.add("collapse");
+document.body.classList.add("shake");
 
-
-
-setTimeout(()=>{
 
 
 document.getElementById("diagnostic")
 .classList.add("active");
 
 
+
 document.getElementById("picture")
-.classList.add("glitch");
+.classList.add("break");
 
 
 
-},1500);
+document.getElementById("cracks")
+.classList.add("active");
+
+
+
+startCodeRain();
+
+
+
+setTimeout(()=>{
+
+
+document.body.classList.remove("shake");
+
+document.body.classList.add("collapse");
+
+
+
+},2500);
 
 
 
@@ -979,8 +1286,14 @@ document.getElementById("diagnostic")
 .classList.remove("active");
 
 
-document.getElementById("picture")
+
+document.querySelector(".container")
 .style.display="none";
+
+
+
+document.getElementById("cracks")
+.classList.remove("active");
 
 
 
@@ -989,7 +1302,8 @@ document.getElementById("final")
 
 
 
-showFinal();
+typeFinal();
+
 
 
 },8500);
@@ -1002,28 +1316,93 @@ showFinal();
 
 
 
-function showFinal(){
+function startCodeRain(){
+
+
+let rain=document.getElementById("codeRain");
+
+
+let chars="010101001101ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+for(let i=0;i<180;i++){
+
+
+let span=document.createElement("span");
+
+
+let text="";
+
+
+for(let j=0;j<20;j++){
+
+
+text+=chars[
+Math.floor(Math.random()*chars.length)
+];
+
+
+}
+
+
+
+span.innerHTML=text;
+
+
+
+span.style.left=
+Math.random()*100+"%";
+
+
+
+span.style.animationDuration=
+(2+Math.random()*5)+"s";
+
+
+
+span.style.animationDelay=
+Math.random()*3+"s";
+
+
+
+rain.appendChild(span);
+
+
+}
+
+
+
+rain.classList.add("active");
+
+
+}
+
+
+
+
+
+function typeFinal(){
 
 
 let lines=[
 
-"final1",
+"f1",
 
-"final2",
+"f2",
 
-"final3",
+"f3",
 
-"final4",
+"f4",
 
-"final5",
+"f5",
 
-"final6"
+"f6"
 
 ];
 
 
 
-lines.forEach((line,index)=>{
+lines.forEach((line,i)=>{
 
 
 setTimeout(()=>{
@@ -1034,12 +1413,11 @@ document.getElementById(line)
 
 
 
-},index*3000);
+},i*3000);
 
 
 
 });
-
 
 
 }
@@ -1048,7 +1426,6 @@ document.getElementById(line)
 
 
 </script>
-
 
 
 </body>

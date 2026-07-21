@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Редактор зон</title>
+<style>
+body{margin:0;background:#111;color:#eee;font-family:Arial}
+#wrap{position:relative;max-width:1054px;margin:20px auto}
+img{width:100%;display:block}
+.zone{position:absolute;border:2px solid;box-sizing:border-box;touch-action:none}
+.label{position:absolute;left:0;top:-20px;background:#000a;color:#fff;font-size:12px;padding:2px 4px}
+#out{white-space:pre-wrap;background:#000;padding:10px;margin:20px}
+button{margin:10px;padding:8px 14px}
+</style>
+</head>
+<body>
+<h2 style="text-align:center">Редактор зон</h2>
+<div id="wrap">
+<img src="print.jpg">
+</div>
+<div style="text-align:center"><button onclick="dump()">Показать координаты</button></div>
+<pre id="out"></pre>
+<script>
+const wrap=document.getElementById('wrap');
+const defs=[
+["Лиса","#0f0",40,300,380,750],
+["Космонавт","#0ff",710,180,280,620],
+["Версия человека","#f0f",368,276,400,820],
+["Оператор","#ff0",40,930,240,320],
+["Череп","#f00",505,910,260,340],
+["Transhumanism","#fff",335,1210,170,170],
+["iPhuck 10","#08f",830,650,180,400],
+["Книга","#fa0",780,1000,180,340]
+];
+const scale=()=>wrap.clientWidth/1054;
+function place(z){
+ const s=scale();
+ z.el.style.left=z.x*s+'px';
+ z.el.style.top=z.y*s+'px';
+ z.el.style.width=z.w*s+'px';
+ z.el.style.height=z.h*s+'px';
+}
+const zones=[];
+defs.forEach(d=>{
+ let z={name:d[0],color:d[1],x:d[2],y:d[3],w:d[4],h:d[5]};
+ let el=document.createElement('div');
+ el.className='zone';
+ el.style.borderColor=z.color;
+ let lab=document.createElement('div');
+ lab.className='label'; lab.textContent=z.name;
+ el.appendChild(lab);
+ wrap.appendChild(el);
+ z.el=el;
+ place(z);
+ let sx,sy,ox,oy;
+ el.onpointerdown=e=>{
+   sx=e.clientX; sy=e.clientY; ox=z.x; oy=z.y;
+   el.setPointerCapture(e.pointerId);
+   el.onpointermove=ev=>{
+      const s=scale();
+      z.x=ox+(ev.clientX-sx)/s;
+      z.y=oy+(ev.clientY-sy)/s;
+      place(z);
+   };
+   el.onpointerup=()=>el.onpointermove=null;
+ };
+ zones.push(z);
+});
+window.onresize=()=>zones.forEach(place);
+function dump(){
+ let t="";
+ zones.forEach(z=>{
+  t+=`${z.name}: x=${Math.round(z.x)} y=${Math.round(z.y)} width=${Math.round(z.w)} height=${Math.round(z.h)}\n`;
+ });
+ out.textContent=t;
+}
+</script>
+</body>
+</html>
